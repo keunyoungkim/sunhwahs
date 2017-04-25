@@ -1,0 +1,53 @@
+
+ <table class="highlight bordered">
+        <thead>
+          <tr>
+              <th>글 번호</th>
+              <th>작성자</th>
+              <th>글 제목</th>
+              <th>작성 시간</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% @post.each do |p| %>
+          <tr>
+            <td><%= p.id %></td>
+            <% if p.user_id? %>
+            <% @writer = @all_users.find(p.user_id) %>
+            <td><%= @writer.name %></td>
+            <% else %>
+            <td> 무명의 작성자 </td>
+            <% end %>
+            <td><%= link_to post_path(p) do %> <%= p.title %></td>
+            <td><%= p.created_at.strftime("%_m/%e %H:%M")  %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+  </table>
+
+      <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+      <% end %>
+      
+      <% if flash[:need_login] %>
+        <div class="need_login"><% flash[:need_login] %></div>
+      <% end %>
+  
+    <br>
+    <div style = "margin-bottom: 50px; text-align: right;">
+    <%= link_to "작성하기", new_post_path %>
+    </div>
+    <br>  
+
+<script>
+  <% if flash[:error].present? %>
+    alert( "글이 지워졌습니다.s");
+  <% end %>
+</script>
+
+<script>
+  <% if flash[:need_login].present? %>
+    alert( "선화고 구성원들만 작성 가능합니다. 로그인해주세요.");
+  <% end %>
+</script>

@@ -1,0 +1,18 @@
+<div class="container">
+
+<div class="image" id="intro">
+
+</div>
+
+<div class="text">
+    <br>
+    <% @post.each do |x| %>
+    <p> 최근 학생 한마디 : <%= link_to post_path(x) do %> <%= x.title %> </p>
+    <% end %>
+    <% @last_user = @user.find(x.user_id) %>
+    <% if @last_user.present? %>
+    <p><%= @last_user.name %> 님이 왔다 가셨어요! </p>
+    <% end %>
+    <% end %>
+</div>
+</div>

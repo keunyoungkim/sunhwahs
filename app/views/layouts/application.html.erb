@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>선화 고등학교</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <!-- Compiled and minified CSS -->
+        
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="description" content="선화고등학교 사이트">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, user-scalable=0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<header class="site-header">
+    
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="/home/owner_notice">커뮤공지사항</a></li>
+      <li><a href="#!">신청서 폼</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">공지 사항</a></li>
+    </ul>
+        <ul id="dropdown2" class="dropdown-content">
+      <li><a href="/home/owner_notice">커뮤 공지사항</a></li>
+      <li><a href="#!">신청서 폼</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">공지 사항</a></li>
+    </ul>
+    
+    <div class="navbar-fixed">
+        <nav class="pink accent-1 nav-extended">
+            <div class="nav-wrapper">
+            <div class="container">
+                <a href="/" class="brand-logo"><i class="material-icons">local_florist</i>선화고등학교</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a internal href="#">학교소개</a>
+                    </li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </li>
+                    <li><a internal href="/posts">학생한마디</a>
+                    </li>
+                    <% if current_user %>
+                    <li> <%= current_user.name.truncate(10) %>님, 안녕하세요?</li>
+                    <li><%= link_to '로그아웃', logout_path, method: :delete %></li>
+                    </ul>
+                     </div>
+                    <% else %>
+                    <li><a internal href="/auth/twitter">Twitter 로그인</a></li>
+                    </ul>
+                    <% end %>
+                </div>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </div>
+    <ul id="slide-out" class="side-nav">
+                    <li><a internal href="#">학교소개</a>
+                    </li>
+                    <li><a class="dropdown-button2" href="#!" data-activates="dropdown2">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
+                    </li>
+                    <li><a internal href="/posts">학생한마디</a>
+                    </li>
+                    <% if current_user %>
+                    
+                    <li><a href="#"><%= current_user.name %>님!</a>
+                    </li>
+                    <li><%= link_to '로그아웃할까요?', logout_path, method: :delete %>
+                    </li>
+                    <% else %>
+                    <li><a internal href="/auth/twitter">Twitter 로그인</a>
+                    </li>
+                    <% end %>
+                </ul>
+    
+
+    
+<script>
+$( document ).ready(function() {
+    $(".dropdown-button2").dropdown({
+        hover: false
+    });
+    $(".dropdown-button").dropdown({
+        hover: true
+    });
+    $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 300
+      edge: 'left', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    }
+  );
+});
+ </script>
+
+</header>
+<div class="container" style="margin-top :10px;">
+<%= yield %>
+</div>
+    <footer class="page-footer pink accent-1 darken-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l3 m6 s12">
+                <h6 class="white-text">Social Links</h6>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="https://twitter.com/thornluv" target="_blank"><i class="material-icons">supervisor_account</i>만든이 틔터</a>
+                    </li>
+                    <li><a class="grey-text text-lighten-3" href="https://twitter.com/mamalrarang" target="_blank"><i class="material-icons">face</i> 말랑이 틔터</a>
+                    </li>
+                </ul>
+            </div>
+                       
+            <div class="col l3 m6 s12">
+            <h6 class="white-text">서비스 이용 약관</h6>
+            <p class="grey-text text-lighten-4">랄랄라랄랄라라랄라라라해피니스~&nbsp;</p>
+            </div>
+            
+                                               
+            <div class="col l3 m6 s12">
+                <h6 class="white-text">선화고등학교</h6>
+                <p class="grey-text text-lighten-4">경기도 선화구 선화로 01004 </p>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2017 @thornluv
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

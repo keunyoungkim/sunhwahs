@@ -1,6 +1,7 @@
+require 'will_paginate/array'
 class PostsController < ApplicationController
      def index
-        @post = Post.all
+        @post = Post.order('created_at DESC').page(params[:page])
         @all_users = User.all
     end
     
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
     
     def show
         @all_users = User.all
+
         if Post.where(:id => params[:id]).present?
            @post = Post.find(params[:id])
         else
@@ -43,6 +45,16 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
         @post.destroy
         redirect_to posts_path
+    end
+    
+    def comment_write
+        comment = Comment.new
+        comment.content = params[:contents]
+        comment.post_id = params[:postid]
+        comment.user_id = session[:user_id]
+        comment.save
+        
+        redirect_to post_path(@post)
     end
     
     private

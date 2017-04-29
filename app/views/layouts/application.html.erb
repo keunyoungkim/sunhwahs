@@ -22,15 +22,15 @@
     
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="/home/owner_notice">커뮤공지사항</a></li>
-      <li><a href="#!">신청서 폼</a></li>
+      <li><a href="/home/application_form">신청서 폼</a></li>
       <li class="divider"></li>
-      <li><a href="#!">공지 사항</a></li>
+      <li><a href="/home/school_info">공지 사항</a></li>
     </ul>
         <ul id="dropdown2" class="dropdown-content">
       <li><a href="/home/owner_notice">커뮤 공지사항</a></li>
-      <li><a href="#!">신청서 폼</a></li>
+      <li><a href="/home/application_form">신청서 폼</a></li>
       <li class="divider"></li>
-      <li><a href="#!">공지 사항</a></li>
+      <li><a href="/home/school_info">공지 사항</a></li>
     </ul>
     
     <div class="navbar-fixed">
@@ -39,9 +39,9 @@
             <div class="container">
                 <a href="/" class="brand-logo"><i class="material-icons">local_florist</i>선화고등학교</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a internal href="#">학교소개</a>
+                    <li><a internal href="/home/principal">학교소개</a>
                     </li>
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#" data-activates="dropdown1">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
                     </li>
                     <li><a internal href="/posts">학생한마디</a>
                     </li>
@@ -62,7 +62,7 @@
     <ul id="slide-out" class="side-nav">
                     <li><a internal href="#">학교소개</a>
                     </li>
-                    <li><a class="dropdown-button2" href="#!" data-activates="dropdown2">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button2" href="#" data-activates="dropdown2">알림마당<i class="material-icons right">arrow_drop_down</i></a></li>
                     </li>
                     <li><a internal href="/posts">학생한마디</a>
                     </li>
@@ -83,7 +83,7 @@
 <script>
 $( document ).ready(function() {
     $(".dropdown-button2").dropdown({
-        hover: false
+        closeOnClick: false
     });
     $(".dropdown-button").dropdown({
         hover: true
@@ -91,7 +91,7 @@ $( document ).ready(function() {
     $('.button-collapse').sideNav({
       menuWidth: 300, // Default is 300
       edge: 'left', // Choose the horizontal origin
-      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
       draggable: true // Choose whether you can drag to open on touch screens
     }
   );
@@ -102,7 +102,8 @@ $( document ).ready(function() {
 <div class="container" style="margin-top :10px;">
 <%= yield %>
 </div>
-    <footer class="page-footer pink accent-1 darken-2">
+
+    <footer class="page-footer pink accent-1 darken-2" style="width:100%">
     <div class="container">
         <div class="row">
             <div class="col l3 m6 s12">
@@ -117,7 +118,7 @@ $( document ).ready(function() {
                        
             <div class="col l3 m6 s12">
             <h6 class="white-text">서비스 이용 약관</h6>
-            <p class="grey-text text-lighten-4">랄랄라랄랄라라랄라라라해피니스~&nbsp;</p>
+            <p class="grey-text text-lighten-4">랄랄라랄랄라라랄라라라해피니스~&nbsp;늄냐늄냐</p>
             </div>
             
                                                
@@ -133,6 +134,7 @@ $( document ).ready(function() {
         <div class="container">
             © 2017 @thornluv
         </div>
+    </div>
     </div>
 </footer>
 

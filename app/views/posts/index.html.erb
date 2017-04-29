@@ -34,6 +34,8 @@
         <div class="need_login"><% flash[:need_login] %></div>
       <% end %>
   
+  <br>
+    <%= will_paginate @post %>
     <br>
     <div style = "margin-bottom: 50px; text-align: right;">
     <%= link_to "작성하기", new_post_path %>
@@ -42,7 +44,7 @@
 
 <script>
   <% if flash[:error].present? %>
-    alert( "글이 지워졌습니다.s");
+    alert( "글이 지워졌습니다.");
   <% end %>
 </script>
 

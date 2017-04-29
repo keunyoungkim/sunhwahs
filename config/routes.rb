@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'home/index'
   get 'home/owner_notice'
+  get 'home/application_form'
+  get 'home/principal'
+  get 'home/school_info'
   root 'home#index'
   
   resources :posts
@@ -8,6 +11,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'home#create'
   
   delete '/logout', to: 'home#destroy'
+    post '/post/comment_write'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

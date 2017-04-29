@@ -14,17 +14,38 @@
     <tbody>
         <td>
             <br>
+         <div class="well">
         <%= @post.contents %><br>            
         <br>
         <br>
         <br>
         <br>
-        
+        <!--<div class="c" id = "c_<%= @post.id %>">-->
+        <!--<% @post.comments.each do |r| %>-->
+        <!--<p>-->
+        <!--    <% if @post.user_id? %>-->
+        <!--    <% @comment_writer = @all_users.find(r.user_id) %>-->
+        <!--    <td><%= @comment_writer.name %></td>-->
+        <!--    <% else %>-->
+        <!--    <th> 무명의 작성자 </th>-->
+        <!--    <% end %>-->
+        <!--</p>-->
+        <!--<p><%= r.content %></p>-->
+        <!--<% end %>-->
+        <!--<br>-->
+        <!--</div>-->
+        <!--</div>-->
         </td>
     </tbody>
 </table>
+    <!--<textarea class="form-control" rows="2" input type="text" id="content_<%= @post.id %>" name ="contents" placeholder ="Comments"></textarea>-->
+    <!--  <button value = "<%= @post.id %>" type="submit" class="btn btn-default comment_submit">Submit</button>-->
+    <br>
+    <div align="right">
     <% if current_user == @writer %>
         <%= link_to "수정", edit_post_path(@post) %>
         <%= link_to "삭제", post_path(@post), method: :delete %>
     <% end %>
         <%= link_to "뒤로가기", posts_path %>
+        </div>
+        

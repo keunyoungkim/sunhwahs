@@ -22,6 +22,9 @@ end
   def owner_notice
     
   end
+  def school_info
+    
+  end
 
   protected
   def auth_hash
